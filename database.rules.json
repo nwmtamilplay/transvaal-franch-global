@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "public": {
+      ".read": true,
+      ".write": false // Optional: prevent public writing
+    },
+    ".read": "auth != null", // All other paths: only auth users
+    ".write": "auth != null"
+  }
+}
