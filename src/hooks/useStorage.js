@@ -1,3 +1,4 @@
+// src/hooks/useStore.js
 import { useCallback, useState } from "react";
 import { storage } from "../firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";

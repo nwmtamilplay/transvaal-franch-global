@@ -1,55 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-
-import RTDBPopularProductsTest from './components/RTDBPopularProductsTest'
+import Auth from './pages/Auth';
+import Dashboard from './pages/Dashboard';
+import useAuth from "./hooks/useAuth";
+import { useEffect } from 'react';
+import Admin from './pages/Admin';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { user, loading, isLoggedIn } = useAuth();
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+  if (loading) return <span>Checking auth…</span>;
 
   return (
     <>
       <Router>
-        <nav>
-          <Link to="/">Home</Link> |{" "}
-          <Link to="/about">About</Link>
-        </nav>
-
+        <span hidden>
+          {isLoggedIn ? `Logged in as ${user?.email}` : "Logged out"}
+        </span>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Router>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className='bg-blue-500'>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs bg-red-500">
-        Click on the Vite and React logos to learn more
-      </p>
-      <RTDBPopularProductsTest />
     </>
   )
 }

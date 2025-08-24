@@ -1,5 +1,6 @@
+// src/hooks/useFirestore.js
 import { useEffect, useState } from "react";
-import { db } from "../firebase/config";
+import { firestore as db } from "../firebase/config";
 import {
   onSnapshot, doc, collection, query as fsQuery,
 } from "firebase/firestore";

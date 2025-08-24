@@ -1,3 +1,4 @@
+// src/hooks/useAuth.js
 import { useEffect, useState, useCallback } from "react";
 import { auth } from "../firebase/config";
 import {
