@@ -4,10 +4,10 @@ import useAuth from "../hooks/useAuth";
 import useStorageUpload from "../hooks/useStorage.js"; // for product image uploads
 import { useProducts, createProduct, updateProduct, deleteProduct } from "../hooks/useProducts.js";
 
-const ADMIN_EMAILS = [
-    "e18ca021@gmail.com",
-    "you@yourdomain.com"
-];
+const ADMIN_EMAILS = (import.meta.env.VITE_ADMIN_EMAIL || "")
+    .split(",")
+    .map(e => e.trim())
+    .filter(Boolean);
 
 export default function Admin() {
     const { user, logout, loading } = useAuth();
@@ -99,7 +99,7 @@ function AdminInner({ email, onLogout }) {
             <div className="max-w-6xl mx-auto">
                 <header className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-semibold">Admin Panel</h1>
+                        <h1 className="text-2xl font-semibold">Franchoil Global Admin Panel</h1>
                         <p className="text-slate-400 text-sm">Signed in as {email}</p>
                     </div>
                     <button onClick={onLogout} className="rounded-lg bg-slate-800 px-3 py-1.5 hover:bg-slate-700">Logout</button>
@@ -155,7 +155,7 @@ function AdminInner({ email, onLogout }) {
                                 </thead>
                                 <tbody>
                                     {products.map((p) => (
-                                        <tr key={p.id} className="border-b border-slate-800">
+                                        <tr key={p.id} className="border-b border-slate-800 h-16">
                                             <td className="py-2 pr-3">
                                                 <div className="flex items-center gap-2">
                                                     {p.imageURL ? <img src={p.imageURL} alt="" className="h-8 w-8 rounded object-cover" /> : <span className="h-8 w-8 grid place-items-center bg-slate-800 rounded">🛍️</span>}
@@ -166,7 +166,7 @@ function AdminInner({ email, onLogout }) {
                                             <td className="py-2 pr-3">{p.stock ?? 0}</td>
                                             <td className="py-2 pr-3">{p.active ? "Yes" : "No"}</td>
                                             <td className="py-2 pr-3">{p.category || "-"}</td>
-                                            <td className="py-2 flex gap-2">
+                                            <td className="py-2 flex justify-center items-center gap-2 pb-0 h-16">
                                                 <button onClick={() => startEdit(p)} className="px-2 py-1 rounded bg-slate-800">Edit</button>
                                                 <button onClick={() => remove(p.id)} className="px-2 py-1 rounded bg-rose-700">Delete</button>
                                             </td>

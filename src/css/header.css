@@ -1,0 +1,236 @@
+#header-search:focus {
+    outline: none;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    font-family: Poppins, sans-serif;
+    color: var(--t-p-c);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid currentColor;
+    animation: typing 30s steps(25) infinite, caret 0.8s step-end infinite;
+}
+
+.input-wrapper:focus-within::before {
+    display: none;
+}
+
+.input-wrapper:has(input:not(:placeholder-shown))::before {
+    display: none;
+}
+
+@keyframes typing {
+
+    0%,
+    15%,
+    100% {
+        content: "Franch Oil NH* Plus";
+        width: 0ch;
+    }
+
+    7.5% {
+        width: 16ch;
+    }
+
+    20%,
+    35% {
+        content: "OG-3 Veg 30's";
+        width: 0ch;
+    }
+
+    27.5% {
+        width: 13ch;
+    }
+
+    40%,
+    55% {
+        content: "Franch Orthovin Thailam";
+        width: 0ch;
+    }
+
+    47.5% {
+        width: 22ch;
+    }
+
+    60%,
+    75% {
+        content: "Franch Ayurveda Skin Soap";
+        width: 0ch;
+    }
+
+    67.5% {
+        width: 23ch;
+    }
+
+    80%,
+    95% {
+        content: "Franch Diafite Powder";
+        width: 0ch;
+    }
+
+    87.5% {
+        width: 19ch;
+    }
+
+
+}
+
+@keyframes caret {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@media (width < 380px) {
+    .input-wrapper::before {
+        font-size: 10px;
+    }
+}
+
+
+.nav-link-tag.active {
+    position: relative;
+    max-width: fit-content;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    color: var(--t-p-c);
+}
+
+.nav-link-tag.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 110%;
+    height: 5px;
+    transform: translateX(-50%);
+    background-color: var(--p-c);
+    border-radius: 100vh;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.nav-link-tag.active::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 2px;
+    border: 12px solid transparent;
+    border-top-color: var(--p-c);
+}
+
+
+
+.nav-link-tag.drop-down::after,
+.drop-link::after {
+    content: "";
+    position: absolute;
+    mask-image: url(https://api.iconify.design/solar:alt-arrow-up-bold-duotone.svg?color=%23ff0000);
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+}
+
+
+.nav-link-tag.drop-down::after {
+    top: 50%;
+    left: 100%;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%) rotate(180deg);
+    background-color: var(--p-c);
+}
+
+.drop-link::after {
+    top: 50%;
+    left: -20px;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%) rotate(90deg);
+    background-color: var(--bg-w);
+    transition: .2s;
+    opacity: 0;
+}
+
+.nav-drop-group .drop-down-links .drop-link {
+    position: relative;
+    transition: .2s;
+}
+
+
+.nav-drop-group .drop-down-links {
+    box-shadow: 0px 5px 10px color-mix(in srgb, var(--bg-b-2) 40%, white);
+    animation: drop-down-d .3s linear forwards;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.nav-drop-group:hover .drop-down-links {
+    opacity: 1;
+    pointer-events: auto;
+    animation: drop-down .3s linear forwards;
+}
+
+.nav-drop-group .drop-down-links .drop-link:hover {
+    background-color: color-mix(in srgb, var(--p-c) 90%, white);
+    color: var(--t-c-l);
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px color-mix(in srgb, var(--bg-b-2) 70%, white);
+}
+
+.nav-drop-group .drop-down-links .drop-link:hover::after {
+    left: 2px;
+    opacity: 1;
+}
+
+.nav-drop-group .drop-down-links .drop-link:hover>div {
+    transition: .2s;
+}
+
+.nav-drop-group .drop-down-links .drop-link:hover>div {
+    transform: translateX(8px);
+}
+
+.drop-down-links {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.drop-down-links:hover {
+    opacity: 1;
+}
+
+@keyframes drop-down-d {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+}
+
+@keyframes drop-down {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

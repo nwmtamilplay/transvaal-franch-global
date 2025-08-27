@@ -1,0 +1,139 @@
+.banner-wrapper-full {
+    mask-image: linear-gradient(to top, var(--bg-w), var(--bg-w) 75%, var(--bg-w) 75%, transparent);
+}
+
+.banner-first,
+.banner-second {
+    width: 100%;
+    height: 320px;
+    isolation: isolate;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.268);
+}
+
+
+.banner-third {
+    width: 100%;
+    height: 100%;
+    isolation: isolate;
+    background-image: url(../../public/images/product/p-9.png);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.268);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-first .banner-image,
+.banner-second .banner-image,
+.banner-third .banner-image {
+    position: absolute;
+    aspect-ratio: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
+    background-image: var(--banner-img);
+}
+
+.banner-first .banner-image {
+    height: 100%;
+    bottom: calc(0px - 30px);
+    right: 5%;
+}
+
+.banner-second .banner-image {
+    height: 100%;
+    bottom: calc(0px - 20px);
+    left: 0%;
+}
+
+.banner-third .banner-image {
+    width: 65%;
+    bottom: calc(0px - 60px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.banner-first:after,
+.banner-second:after {
+    content: "";
+    position: absolute;
+    width: 28%;
+    height: 500px;
+    background-color: var(--bg-b-5);
+    z-index: -2;
+    top: 50%;
+    right: 30%;
+    transform: rotate(31deg) translateY(-50%);
+}
+
+
+.banner-second:after {
+    transform: rotate(31deg) translateY(-60%);
+    background-color: var(--bg-b-6);
+    right: auto;
+    left: -13%;
+}
+
+.banner-first:before,
+.banner-second:before {
+    content: "";
+    position: absolute;
+    width: 4%;
+    height: 500px;
+    background-color: var(--bg-b-5);
+    z-index: -3;
+    top: 50%;
+    right: 20%;
+    transform: rotate(31deg) translateY(-50%);
+}
+
+.banner-second:before {
+    background-color: var(--bg-b-6);
+    right: auto;
+    left: -23%;
+}
+
+.banner-third:after {
+    position: absolute;
+    content: "";
+    width: 105%;
+    aspect-ratio: 1;
+    background-color: var(--bg-b-5);
+    border-radius: 100vh;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: -2;
+}
+
+@media (width < 600px) {
+
+    .banner-first,
+    .banner-second {
+        height: 200px;
+    }
+
+    .banner-first:after {
+        right: 50%;
+    }
+
+    .banner-first:before {
+        right: 40%;
+    }
+
+    .banner-second:after {
+        left: -33%;
+    }
+
+    .banner-second:before {
+        left: -43%;
+    }
+
+    .banner-third {
+        height: 350px;
+    }
+
+    .banner-third .banner-image {
+        width: 70%;
+    }
+}

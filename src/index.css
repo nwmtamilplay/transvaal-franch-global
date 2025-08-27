@@ -1,1 +1,280 @@
 @import "tailwindcss";
+
+
+/* roots colors start.............................. */
+:root {
+  /* primary secondary colors */
+  --p-c: #007E3C;
+  --s-c: #F7FF1B;
+
+  /* background colors */
+  --bg-w: #ffffff;
+  --bg-d: #1B1B1B;
+  --bg-b-1: #5D558B;
+  --bg-b-2: #50A489;
+  --bg-b-3: #0F625B;
+  --bg-b-4: #125700;
+  --bg-b-5: #F7FF1B;
+  --bg-b-6: #cdb999;
+
+  /* Accent Colors */
+  --a-c: #007E3C;
+  --a-c-2: #125700;
+  --a-c-3: #F7FF1B;
+  --a-c-4: #50A489;
+
+  /* btn colors */
+  --btn-c: #50A489;
+
+  /* text colors */
+  --t-p-c: #007E3C;
+  --t-s-c: #F7FF1B;
+  --t-c-l: #ffffff;
+  --t-c-d: #000000;
+
+  /* shadow part */
+  --box-sha-1: 0px 0px 10px rgba(0, 0, 0, 0.204);
+  --box-sha-2: 0px 0px 10px hsla(161, 34%, 48%, 18%);
+
+  /* transition part */
+  --transition-1: all .4s ease;
+
+  /* padding part */
+  --padding-1: 4px 18px;
+
+  /* border radius part */
+  --border-r-full: 100vh;
+}
+
+/* roots colors end.................................. */
+
+/* custom classes start............................ */
+
+/* bg part */
+.bg-p-c {
+  background-color: var(--p-c);
+}
+
+.bg-s-c {
+  background-color: var(--s-c);
+}
+
+.bg-w {
+  background-color: var(--bg-w);
+}
+
+.bg-d {
+  background-color: var(--bg-d);
+}
+
+.bg-b-1 {
+  background-color: var(--bg-b-1);
+}
+
+.bg-b-2 {
+  background-color: var(--bg-b-2);
+}
+
+/* Accent Colors */
+.bg-a-c {
+  background-color: var(--a-c);
+}
+
+.text-a-c {
+  color: var(--a-c);
+}
+
+.bg-a-c-2 {
+  background-color: var(--a-c-2);
+}
+
+.text-a-c-2 {
+  color: var(--a-c-2);
+}
+
+.bg-a-c-3 {
+  background-color: var(--a-c-3);
+}
+
+.text-a-c-3 {
+  color: var(--a-c-3);
+}
+
+.bg-a-c-4 {
+  background-color: var(--a-c-4);
+}
+
+.text-a-c-4 {
+  color: var(--a-c-4);
+}
+
+/* Buttons */
+.bg-btn-c {
+  background-color: var(--btn-c);
+}
+
+.text-btn-c {
+  color: var(--btn-c);
+}
+
+/* Text Colors */
+.text-p-c {
+  color: var(--t-p-c);
+}
+
+.text-s-c {
+  color: var(--t-s-c);
+}
+
+.text-c-l {
+  color: var(--t-c-l);
+}
+
+.text-c-d {
+  color: var(--t-c-d);
+}
+
+/* Shadows */
+.box-sha-1 {
+  box-shadow: var(--box-sha-1);
+}
+
+.box-sha-2 {
+  box-shadow: var(--box-sha-2);
+}
+
+/* Border Radius */
+.border-r-full {
+  border-radius: var(--border-r-full);
+}
+
+/* custom classes end...................................*/
+
+
+/* fonts style start..................................... */
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.montagu-slab {
+  font-family: "Montagu Slab", serif;
+}
+
+.quando {
+  font-family: "Quando", serif;
+}
+
+.ruwudu {
+  font-family: "Ruwudu", serif;
+}
+
+/* fonts style end...................................... */
+
+.mask-item {
+  width: var(--m-size);
+  height: var(--m-size);
+  background-color: var(--m-bg);
+  -webkit-mask-image: var(--m-url);
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: var(--m-url);
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  transition: var(--transition-1);
+}
+
+.mask-item:hover {
+  background-color: var(--m-h-bg, var(--m-bg));
+}
+
+.back-image {
+  background-image: var(--back-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+*:hover>.mask-item {
+  background-color: var(--m-h-bg, var(--m-bg));
+}
+
+.product-ratings {
+  position: relative;
+  width: 100px;
+  height: 20px;
+  background-image: url(https://api.iconify.design/ic:sharp-star-border.svg?color=%23FF9F1C);
+  background-size: 20px;
+  background-repeat: repeat-x;
+  background-position: left center;
+}
+
+
+.product-ratings::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--ratings) * 20px);
+  height: 20px;
+  background-color: #FF9F1C;
+  -webkit-mask-image: url(https://api.iconify.design/ic:sharp-star.svg?color=%23FF9F1C);
+  -webkit-mask-size: 20px;
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-position: left center;
+  mask-image: url(https://api.iconify.design/ic:sharp-star.svg?color=%23FF9F1C);
+  mask-size: 20px;
+  mask-repeat: repeat-x;
+  mask-position: left center;
+  z-index: 10;
+}
+
+.product-ratings::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--ratings) * 20px);
+  height: 20px;
+  background-color: #FF9F1C;
+  -webkit-mask-image: url(https://api.iconify.design/ic:sharp-star.svg?color=%23FF9F1C);
+  -webkit-mask-size: 20px;
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-position: left center;
+  mask-image: url(https://api.iconify.design/ic:sharp-star.svg?color=%23FF9F1C);
+  mask-size: 20px;
+  mask-repeat: repeat-x;
+  mask-position: left center;
+  z-index: 10;
+}
+
+.product-wrapper::before {
+  content: attr(data-offer);
+  position: absolute;
+  font-weight: 500;
+  width: max-content;
+  padding: 5px;
+  background-color: var(--bg-b-2);
+  color: var(--t-c-l);
+  line-height: 1.1;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  right: -11px;
+  top: 25px;
+  box-shadow: -3px 3px 5px color-mix(in srgb, var(--bg-b-2) 90%, rgb(255, 255, 255));
+}
+
+.product-wrapper::after {
+  content: "";
+  position: absolute;
+  background-color: color-mix(in srgb, var(--bg-b-3) 70%, rgb(255, 255, 255));
+  width: 20px;
+  height: 38px;
+  right: -3px;
+  top: 38px;
+  z-index: -1;
+  transform: rotate(29deg);
+}
